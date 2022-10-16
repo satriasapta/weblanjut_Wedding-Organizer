@@ -41,8 +41,9 @@ $routes->get('create-db', function(){
 });
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-// $routes->addRedirect('/', 'home');
+// $routes->get('/', 'Home::index');
+$routes->get('/home', 'Home::index');
+$routes->addRedirect('/', 'home');
 $routes->get('/gawe', 'Gawe::index');
 $routes->get('/gawe/add', 'Gawe::create');
 $routes->post('/gawe', 'Gawe::store');
@@ -51,6 +52,7 @@ $routes->put('gawe/(:any)', 'Gawe::update/$1');
 $routes->delete('gawe/(:segment)', 'Gawe::destroy/$1');
 
 $routes->get('/auth/login', 'Auth::login');
+$routes->get('/auth/logout', 'Auth::logout');
 $routes->post('/auth/loginProcess', 'Auth::loginProcess');
 
 /*
