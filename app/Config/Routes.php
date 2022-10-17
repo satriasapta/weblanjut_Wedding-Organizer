@@ -33,7 +33,7 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  */
 
-$routes->get('create-db', function(){
+$routes->get('create-db', function () {
     $forge = \Config\Database::forge();
     if ($forge->createDatabase('yuknikah')) {
         echo 'Database created!';
@@ -54,6 +54,8 @@ $routes->delete('gawe/(:segment)', 'Gawe::destroy/$1');
 $routes->get('/auth/login', 'Auth::login');
 $routes->get('/auth/logout', 'Auth::logout');
 $routes->post('/auth/loginProcess', 'Auth::loginProcess');
+
+$routes->presenter('groups');
 
 /*
  * --------------------------------------------------------------------
