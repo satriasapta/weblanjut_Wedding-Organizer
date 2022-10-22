@@ -57,7 +57,6 @@
                                 <td> <?= $value->info_gawe; ?> </td>
                                 <td class="text-center" style="width:15%">
                                     <a href="<?= site_url('/gawe/edit/' . $value->id_gawe); ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                                    <a href="<?= site_url('gawe/edit/' . $value->id_gawe); ?>" class="btn btn-danger btn-sm">
                                         <form action="<?= site_url('gawe/' . $value->id_gawe); ?>" method="POST" class="d-inline" onsubmit="return confirm('yakin hapus data?')">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="delete">

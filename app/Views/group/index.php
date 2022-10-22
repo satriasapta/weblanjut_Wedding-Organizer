@@ -48,7 +48,23 @@
                             <th>Info</th>
                             <th>Action</th>
                         </tr>
-                       
+                        <?php foreach ($groups as $key => $value) : ?>
+                            <tr>
+                                <td><?= $key + 1; ?></td>
+                                <td class="font-weight-600"><?= $value->name_group; ?></td>
+                                <td> <?= $value->info_group; ?> </td>
+                                <td class="text-center" style="width:15%">
+                                    <a href="<?= site_url('/group/edit/' . $value->id_group); ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                        <form action="<?= site_url('gawe/' . $value->id_group); ?>" method="POST" class="d-inline" onsubmit="return confirm('yakin hapus data?')">
+                                            <?= csrf_field(); ?>
+                                            <input type="hidden" name="_method" value="delete">
+                                            <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </div>

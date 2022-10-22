@@ -3,9 +3,14 @@
 namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourcePresenter;
+use App\Models\GroupModel;
 
 class Groups extends ResourcePresenter
 {
+    function __construct()
+    {
+        $this->group = new GroupModel();
+    }
     /**
      * Present a view of resource objects
      *
@@ -13,7 +18,8 @@ class Groups extends ResourcePresenter
      */
     public function index()
     {
-        return view('group/index');
+        $data['groups'] = $this->group->findAll(); 
+        return view('group/index',$data);
     }
 
     /**
